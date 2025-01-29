@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uyishi/features/auth/presentation/controller/auth_provider.dart';
 import 'package:uyishi/features/auth/presentation/screens/register_screen.dart';
+import 'package:uyishi/features/home/presentation/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,6 +53,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   phoneNumber: phoneController.text.trim(),
                   password: passwordController.text.trim(),
                 );
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(authProvider.message),
+                  ),
+                );
+
+                if (authProvider.message.contains("succcesfuly")) {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
+                }
               },
               child: Text(
                 "Login",
