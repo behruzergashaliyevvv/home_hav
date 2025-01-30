@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                // SizedBox(height: 5),
+                
                 Text(
                   "Enter your email to start shopping and get awesome deals today!",
                   style: TextStyle(
